@@ -92,7 +92,7 @@ Resources:
     Type: AWS::CloudFormation::Stack
     Condition: CreateVpc
     Properties:
-      TemplateURL: https://enginframe.s3.amazonaws.com/HPC-Networking.yaml
+      TemplateURL: https://github.com/TarteelAI/1click-hpc/raw/main/Templates/HPC-Networking.yaml
 
 #lest use privateA , privateA, and privateB
 #be consistent with parameter names across CF templates
@@ -100,7 +100,7 @@ Resources:
     Type: AWS::CloudFormation::Stack
     Condition: CreateAD
     Properties:
-      TemplateURL: https://enginframe.s3.amazonaws.com/HPC-AD.yaml
+      TemplateURL: https://github.com/TarteelAI/1click-hpc/raw/main/Templates/HPC-AD.yaml
       Parameters:
         AdminPassword: !Ref AdminPassword
         Vpc: !If [CreateVpc, !GetAtt HPCNetworkStack.Outputs.VPC, !Ref VpcId]
